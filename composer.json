@@ -1,0 +1,19 @@
+{
+    "name": "ramphor/wordland-agents",
+    "description": "Create and management agents for WordLand",
+    "type": "project",
+    "license": "GPL-2.0-only",
+    "authors": [
+        {
+            "name": "Puleeno Nguyen",
+            "email": "puleeno@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "WordLand\\": "src/"
+        }
+    }
+}
