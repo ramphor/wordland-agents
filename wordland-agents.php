@@ -11,7 +11,6 @@ use WordLand\WordLandAgents;
 
 define('WORDLAND_AGENT_PLUGIN_FILE', __FILE__);
 
-
 if (!class_exists(WordLandAgents::class)) {
     $composerAutoloader = sprintf('%s/vendor/autoload.php', dirname(__FILE__));
     if (file_exists($composerAutoloader)) {
@@ -25,4 +24,4 @@ if (!function_exists('wordland_agents')) {
     }
 }
 
-$GLOBALS['wordland_agents'] = wordland_agents();
+add_action('plugins_loaded', 'wordland_agents');

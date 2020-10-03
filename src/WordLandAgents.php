@@ -1,6 +1,9 @@
 <?php
 namespace WordLand;
 
+use WordLand;
+use WordLand\Agents\Integration\Integrate;
+
 final class WordLandAgents
 {
     protected static $instance;
@@ -10,7 +13,6 @@ final class WordLandAgents
         if (is_null(static::$instance)) {
             static::$instance = new static();
         }
-
         return static::$instance;
     }
 
@@ -20,5 +22,9 @@ final class WordLandAgents
         if (!class_exists(WordLand::class)) {
             return;
         }
+        $this->initFeatures();
+    }
+
+    protected function initFeatures() {
     }
 }
