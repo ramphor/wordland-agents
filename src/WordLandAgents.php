@@ -2,7 +2,7 @@
 namespace WordLand;
 
 use WordLand;
-use WordLand\Agents\Integration\Integrate;
+use WordLand\Agents\Integration\Integrator;
 
 final class WordLandAgents
 {
@@ -25,6 +25,10 @@ final class WordLandAgents
         $this->initFeatures();
     }
 
-    protected function initFeatures() {
+    protected function initFeatures()
+    {
+        // Integrate with other plugins
+        $integrator = Integrator::getInstance();
+        $integrator->integrate();
     }
 }
