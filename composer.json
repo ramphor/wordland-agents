@@ -1,5 +1,5 @@
 {
-    "name": "ramphor/wordland-agents",
+    "name": "wordland/agents",
     "description": "Create and management agents for WordLand",
     "type": "project",
     "license": "GPL-2.0-only",
