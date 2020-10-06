@@ -2,6 +2,8 @@
 namespace WordLand\Agents\Integration\Elementor\Widgets;
 
 use Elementor\Widget_Base;
+use WordLand\Agents\Query\AgentQuery;
+use WordLand\Agents\Renderer\Agents as AgentsRenderer;
 
 class AgentsWidget extends Widget_Base
 {
@@ -31,7 +33,13 @@ class AgentsWidget extends Widget_Base
 
     protected function render()
     {
-        echo 'agents day';
+        $settings= $this->get_settings_for_display();
+        $query = new AgentQuery(array(
+        ));
+        $renderer = new AgentsRenderer($query);
+        $renderer->setProps($settings);
+
+        echo (string) $renderer;
     }
 
     protected function _content_template()

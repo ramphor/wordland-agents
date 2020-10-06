@@ -1,5 +1,6 @@
 <?php
 namespace WordLand\Agents;
 
-class Developer extends Agent {
+class Developer extends Agent
+{
 }
