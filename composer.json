@@ -10,9 +10,6 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {
-        "ramphor/plugin-core": "dev-master"
-    },
     "autoload": {
         "psr-4": {
             "WordLand\\Agents\\": "includes/Agents"
