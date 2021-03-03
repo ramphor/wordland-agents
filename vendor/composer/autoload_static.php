@@ -6,22 +6,22 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit60d2bc420232da8456cd6f23a9d03526
 {
+    public static $files = array (
+        '673ad3f37fbfcece16b3dcf0dcae4cc5' => __DIR__ . '/../..' . '/includes/WordLand_Agents.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
-            'WordLand\\' => 9,
+            'WordLand\\Agents\\' => 16,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'WordLand\\' => 
+        'WordLand\\Agents\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src',
+            0 => __DIR__ . '/../..' . '/includes/Agents',
         ),
-    );
-
-    public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -29,7 +29,6 @@ class ComposerStaticInit60d2bc420232da8456cd6f23a9d03526
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit60d2bc420232da8456cd6f23a9d03526::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit60d2bc420232da8456cd6f23a9d03526::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit60d2bc420232da8456cd6f23a9d03526::$classMap;
 
         }, null, ClassLoader::class);
     }

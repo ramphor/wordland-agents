@@ -13,7 +13,10 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "WordLand\\": "src/"
-        }
+            "WordLand\\Agents\\": "includes/Agents"
+        },
+        "files": [
+            "./includes/WordLand_Agents.php"
+        ]
     }
 }

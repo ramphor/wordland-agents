@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'WordLand\\' => array($baseDir . '/src'),
+    'WordLand\\Agents\\' => array($baseDir . '/includes/Agents'),
 );

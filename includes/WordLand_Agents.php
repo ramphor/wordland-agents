@@ -1,10 +1,8 @@
 <?php
-namespace WordLand;
-
 use WordLand;
 use WordLand\Agents\Integration\Integrator;
 
-final class WordLandAgents
+final class WordLand_Agents
 {
     protected static $instance;
 
