@@ -24,8 +24,5 @@ final class WordLand_Agents
 
     protected function initFeatures()
     {
-        // Integrate with other plugins
-        $integrator = Integrator::getInstance();
-        $integrator->integrate();
     }
 }
