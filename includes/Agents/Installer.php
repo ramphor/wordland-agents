@@ -3,7 +3,8 @@ namespace WordLand\Agents;
 
 class Installer
 {
-    public static function install() {
+    public static function install()
+    {
         static::create_new_tables();
     }
 

@@ -1,6 +1,8 @@
 <?php
 use WordLand\Agents\Integration\Integrator;
 
+use WordLand\Agents\Admin as AgentsDashboard;
+
 final class WordLand_Agents
 {
     protected static $instance;
@@ -24,5 +26,8 @@ final class WordLand_Agents
 
     protected function initFeatures()
     {
+        if (wp_is_request('admin')) {
+            new AgentsDashboard();
+        }
     }
 }
