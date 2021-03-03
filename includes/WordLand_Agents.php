@@ -1,5 +1,4 @@
 <?php
-use WordLand;
 use WordLand\Agents\Integration\Integrator;
 
 final class WordLand_Agents

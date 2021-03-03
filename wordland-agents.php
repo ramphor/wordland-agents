@@ -16,6 +16,11 @@ if (!class_exists(WordLand_Agents::class)) {
     }
 }
 
+register_activation_hook(
+    WORDLAND_AGENT_PLUGIN_FILE,
+    array(\WordLand\Agents\Installer::class, 'install')
+);
+
 if (!function_exists('wordland_agents')) {
     function wordland_agents() {
         if (empty($GLOBALS['wordland_agents'])) {
