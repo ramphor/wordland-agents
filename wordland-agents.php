@@ -18,7 +18,10 @@ if (!class_exists(WordLand_Agents::class)) {
 
 if (!function_exists('wordland_agents')) {
     function wordland_agents() {
-        return WordLand_Agents::getInstance();
+        if (empty($GLOBALS['wordland_agents'])) {
+            $GLOBALS['wordland_agents'] = WordLand_Agents::getInstance();
+        }
+        return $GLOBALS['wordland_agents'];
     }
 }
 
