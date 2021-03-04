@@ -16,6 +16,8 @@ class Installer
             'wordland_agent_relationships' => '`ID` BIGINT NOT NULL AUTO_INCREMENT,
                 `user_id` BIGINT NOT NULL,
                 `property_id` BIGINT NULL,
+                `is_primary` TININT(1) NOT NULL DEFAULT 0,
+                `updated_at` TIMESTAMP NOT NULL,
                 `created_at` TIMESTAMP NOT NULL,
                 PRIMARY KEY (`ID`)',
         );
