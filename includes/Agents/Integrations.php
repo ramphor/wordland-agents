@@ -7,11 +7,13 @@ class Integrations
 {
     protected $multiAgents;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->multiAgents = new MultiAgents();
     }
 
-    public function integrate() {
+    public function integrate()
+    {
         add_action('init', array($this->multiAgents, 'init'));
     }
 }

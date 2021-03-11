@@ -1,8 +1,10 @@
 <?php
 namespace WordLand\Agents;
 
-class Query {
-    public static function check_relationship_is_exists($property_id, $agent_id) {
+class Query
+{
+    public static function check_relationship_is_exists($property_id, $agent_id)
+    {
         global $wpdb;
 
         $sql = $wpdb->prepare(
@@ -13,7 +15,8 @@ class Query {
         return intval($wpdb->get_var($sql)) > 0;
     }
 
-    public static function create_property_agent_relationship($property_id, $agent_id) {
+    public static function create_property_agent_relationship($property_id, $agent_id)
+    {
         global $wpdb;
 
         $data = array(
