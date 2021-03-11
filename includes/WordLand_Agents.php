@@ -2,6 +2,7 @@
 use WordLand\Agents\Integration\Integrator;
 
 use WordLand\Agents\Admin as AgentsDashboard;
+use WordLand\Agents\Integrations;
 
 final class WordLand_Agents
 {
@@ -29,5 +30,7 @@ final class WordLand_Agents
         if (wp_is_request('admin')) {
             new AgentsDashboard();
         }
+        $integrations = new Integrations();
+        add_action('after_setup_theme', array($integrations, 'integrate'));
     }
 }
