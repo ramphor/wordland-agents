@@ -25,7 +25,11 @@ class MultiAgents
         $agents = array();
         foreach ($current_data_row as $key => $value) {
             if (!is_null($value) && preg_match('/agent\_([^\_]{1,})\_(\d{1,})/', $key, $matches)) {
-                $agents[$matches[2]][$matches[1]] = $value;
+                switch ($matches[2]) {
+                    default:
+                        $agents[$matches[2]][$matches[1]] = $value;
+                        break;
+                }
             }
         }
         $property->otherAgents = $agents;
@@ -36,9 +40,14 @@ class MultiAgents
     {
         if (isset($propertyData->otherAgents) && count($propertyData->otherAgents) > 0) {
             foreach ($propertyData->otherAgents as $otherAgent) {
+                $phoneNumber = array_get($otherAgent, 'phone');
+                if (!wordland_validate_phone_number($phoneNumber)) {
+                    continue;
+                }
+
                 $agentData = array(
                     'name' => array_get($otherAgent, 'name'),
-                    'phone' => array_get($otherAgent, 'phone'),
+                    'phone' => wlsi_clean_phone_number($phoneNumber),
                     'email' => array_get($otherAgent, 'email'),
                 );
 
