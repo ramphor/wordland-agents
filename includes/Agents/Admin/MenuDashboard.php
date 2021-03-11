@@ -20,13 +20,14 @@ class MenuDashboard
 
     public function register_admin_menu()
     {
-        add_submenu_page(
-            'wordland',
+        add_menu_page(
             __('WordLand Agents', 'wordland_agents'),
-            __('Agents', 'wordland_agents'),
+            __('WordLand Agents', 'wordland_agents'),
             'manage_options',
             'wordland_agents',
             array($this, 'render_ui'),
+            '',
+            16
         );
     }
 
