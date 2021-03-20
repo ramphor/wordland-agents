@@ -46,16 +46,24 @@ class PropertyBuilder
 
         $user_query = $agentQuery->getWordPressQuery();
 
-        $agents = $user_query->get_results();
+        $users = $user_query->get_results();
 
-        foreach ($agents as $agent) {
-            $property->agents[$agent->ID] = new Agent(
-                $agent->display_name,
-                $agent->phone_number,
-                $agent->user_email
+        foreach ($users as $user) {
+            $agent = new Agent(
+                $user->display_name,
+                $user->phone_number,
+                $user->user_email
             );
-        }
+            $agent->setUserID($user->ID);
+            $agent->getAvatarUrlFromUser();
 
+            do_action_ref_array('wordland_agents_load_agent', array(
+                &$agent,
+                $user
+            ));
+
+            $property->agents[$user->ID] = $agent;
+        }
 
         return $property;
     }
