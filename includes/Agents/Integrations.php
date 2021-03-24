@@ -17,7 +17,14 @@ class Integrations
 
     public function integrate()
     {
+        add_action('after_setup_theme', array($this, 'integrateWithElementor'));
+
         add_action('init', array($this->multiAgents, 'init'));
         add_action('init', array($this->propertyBuilder, 'init'));
+    }
+
+
+    public function integrateWithElementor()
+    {
     }
 }
