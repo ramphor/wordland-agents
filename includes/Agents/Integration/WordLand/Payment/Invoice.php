@@ -1,9 +1,10 @@
 <?php
-namespace WordLand\Agents\Integration\WordLand\Frontend;
+namespace WordLand\Agents\Integration\WordLand\Payment;
 
 use Ramphor\User\Abstracts\MyProfileAbstract;
 
-class Invoice extends MyProfileAbstract {
+class Invoice extends MyProfileAbstract
+{
     const FEATURE_NAME = 'invoice';
 
     protected $priority = 30;
