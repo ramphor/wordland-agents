@@ -7,7 +7,7 @@ class Addresses extends MyProfileAbstract
 {
     const FEATURE_NAME = 'agent-addresses';
 
-    protected $priority = 50;
+    protected $priority = 39;
 
     public function getName()
     {
