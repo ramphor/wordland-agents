@@ -2,6 +2,7 @@
 namespace WordLand\Agents\Integration\WordLand\Payment;
 
 use Ramphor\User\Abstracts\MyProfileAbstract;
+use WordLand\Agents\Integration\WordLand\TemplateLoader;
 
 class Invoice extends MyProfileAbstract
 {
@@ -24,5 +25,11 @@ class Invoice extends MyProfileAbstract
 
     public function render()
     {
+        return TemplateLoader::render(
+            'my-profile/feature/invoices',
+            array(),
+            null,
+            false
+        );
     }
 }
