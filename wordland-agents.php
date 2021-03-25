@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WordLand Agents
+ * Plugin Name: WordLand Agents and Memberships
  * Author: Ramphor Premium
  * Author URI: https://puleeno.com
  * Description:  Create and management agents for WordLand
