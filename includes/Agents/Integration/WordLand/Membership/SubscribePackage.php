@@ -2,7 +2,7 @@
 namespace WordLand\Agents\Integration\WordLand\Membership;
 
 use Ramphor\User\Abstracts\MyProfileAbstract;
-use WordLand\Agents\Integration\WordLand\OverrideTemplate;
+use WordLand\Agents\Integration\WordLand\TemplateLoader;
 
 class SubscribePackage extends MyProfileAbstract
 {
@@ -17,15 +17,17 @@ class SubscribePackage extends MyProfileAbstract
 
     public function getMenuItem()
     {
+        $subscribePackagePage = wordland_get_option('subscribe_package_page');
+
         return array(
             'label' => __('Subcribe package', 'wordland_agents'),
-            'url' => '#',
+            'url' => $subscribePackagePage ? get_permalink($subscribePackagePage) : '#',
         );
     }
 
     public function render()
     {
-        return OverrideTemplate::render(
+        return TemplateLoader::render(
             'my-profile/feature/subcribe-package',
             array(),
             null,
