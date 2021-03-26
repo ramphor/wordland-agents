@@ -16,9 +16,11 @@ class Addresses extends MyProfileAbstract
 
     public function getMenuItem()
     {
+        $addressesPage = wordland_get_option('agent_addresses_page');
+
         return array(
             'label' => __('Addresses', 'wordland_agents'),
-            'url' => '#',
+            'url' => $addressesPage ? get_permalink($addressesPage) : '#',
         );
     }
 

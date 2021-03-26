@@ -17,9 +17,11 @@ class Invoice extends MyProfileAbstract
 
     public function getMenuItem()
     {
+        $invoicesPage = wordland_get_option('invoice_page');
+
         return array(
             'label' => __('Invoices', 'wordland_agents'),
-            'url' => '#',
+            'url' => $invoicesPage ? get_permalink($invoicesPage) : '#',
         );
     }
 
