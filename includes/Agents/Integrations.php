@@ -7,6 +7,7 @@ use WordLand\Agents\Integration\SpreadsheetImporter\MultiAgents;
 use WordLand\Agents\Integration\WordLand\Agent\Addresses;
 use WordLand\Agents\Integration\WordLand\Payment\Invoice;
 use WordLand\Agents\Integration\WordLand\Membership\SubscribePackage;
+use WordLand\Agents\Integration\WordLand\Query\ExtendAgentQuery;
 use WordLand\Agents\Integration\WordLand\OverrideTemplate;
 
 class Integrations
@@ -16,14 +17,17 @@ class Integrations
 
     public function __construct()
     {
-        $this->multiAgents = new MultiAgents();
-        $this->propertyBuilder = new PropertyBuilder();
+        $this->multiAgents      = new MultiAgents();
+        $this->propertyBuilder  = new PropertyBuilder();
+        $this->extendAgentQuery = new ExtendAgentQuery();
     }
 
     public function integrate()
     {
         add_action('init', array($this->multiAgents, 'init'));
         add_action('init', array($this->propertyBuilder, 'init'));
+        add_action('init', array($this->extendAgentQuery, 'init'));
+
         add_action('init', array($this, 'registerInvoicePageInProfile'));
     }
 
