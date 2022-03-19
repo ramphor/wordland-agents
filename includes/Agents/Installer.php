@@ -6,6 +6,7 @@ class Installer
     public static function install()
     {
         static::create_new_tables();
+        add_action('init', [__CLASS__, 'flush_rewrite_rules'], 99);
     }
 
     public static function create_new_tables()
@@ -13,13 +14,15 @@ class Installer
         global $wpdb;
 
         $tables = array(
-            'wordland_agent_relationships' => '`ID` BIGINT NOT NULL AUTO_INCREMENT,
+            'wordland_agent_relationships' => '
+                `ID` BIGINT NOT NULL AUTO_INCREMENT,
                 `user_id` BIGINT NOT NULL,
                 `property_id` BIGINT NULL,
-                `is_primary` TININT(1) NOT NULL DEFAULT 0,
-                `updated_at` TIMESTAMP NOT NULL,
-                `created_at` TIMESTAMP NOT NULL,
-                PRIMARY KEY (`ID`)',
+                `is_primary` BOOLEAN DEFAULT FALSE,
+                `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (`ID`)
+            ',
         );
 
         foreach ($tables as $table_name => $sql_syntax) {
@@ -34,5 +37,9 @@ class Installer
             );
             $wpdb->query($sql);
         }
+    }
+
+    public static function flush_rewrite_rules() {
+        flush_rewrite_rules(false);
     }
 }
